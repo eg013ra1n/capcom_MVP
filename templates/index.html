@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SPICA CAPCOM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Audiowide&display=swap"
+        rel="stylesheet">
+    <link href="{{ url_for('static', filename='styles/styles.css') }}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="header">
+        <img src="{{ url_for('static', filename='images/spicalogo.webp') }}" alt="SPICA Logo">
+        <div class="command-center">CAPCOM</div>
+        <div class="the-time"><span id="data-time"></span></div>
+        <div class="safe-status">Safe<span id="safe-indicator">&#9679;</span></div>
+        <div id="weather-table-container">
+            <!-- Здесь будет сгенерирована таблица с данными о погоде -->
+        </div>
+    </div>
+
+
+    <div class="grid-container">
+        <div class="grid-item">
+            <h2 class="image-title">Indoor</h2>
+            <img class="camera" id="localImage" src="/local_image" alt="Local Image">
+        </div>
+        <div class="grid-item">
+            <h2>Last image</h2>
+            <div class="grid-item" id="tabs-container-1">
+                <div class="tabs">
+                    <button class="tab-button" onclick="changeTab('T1', '1')">T1</button>
+                    <button class="tab-button" onclick="changeTab('VIVI', '1')">VIVI</button>
+                    <button class="tab-button" onclick="changeTab('DUKE', '1')">DUKE</button>
+                </div>
+                <div class="tab-content" id="T1-1">
+                    <div class="vivi-container">
+                        <img id="t1-image" src="" alt="T1 Image" />
+                    </div>
+                </div>
+                <div class="tab-content" id="VIVI-1" style="display: none;">
+                    <div class="vivi-container">
+                        <img id="vivi-image" src="" alt="VIVI Image" />
+                    </div>
+                </div>                       
+                <div class="tab-content" id="DUKE-1" style="display: none;">
+                    <div class="duke-container">
+                        <img id="duke-image" src="" alt="DUKE Image" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <h2 class="image-title">Outdoor</h2>
+            <img class="camera" id="remoteImage" src="/remote_image" alt="Remote Image">
+        </div>
+        <div class="grid-item">
+            <h2 class="image-title">Telemetry</h2>
+            <div class="grid-item" id="tabs-container-2">
+                <div class="tabs">
+                    <button class="tab-button" onclick="changeTab('T1', '2')">T1</button>
+                    <button class="tab-button" onclick="changeTab('VIVI', '2')">VIVI</button>
+                    <button class="tab-button" onclick="changeTab('DUKE', '2')">DUKE</button>
+                </div>
+                <div class="tab-content" id="T1-2">
+                        <div class="history-table-container">
+                            <table id="imageHistoryTableT1">
+                                <thead>
+                                    <tr>
+                                        <th>Target Name</th>
+                                        <th>DateTime</th>
+                                        <th>ID</th>
+                                        <th>Filter</th>
+                                        <th>Duration (s)</th>
+                                        <th>Type</th>
+                                        <th>Stars</th>
+                                        <th>HFR</th>
+                                        <th>RMS Text</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Данные для T1 будут добавлены здесь с помощью JavaScript -->
+                                </tbody>
+                            </table>
+                    </div>
+                </div>
+                <div class="tab-content" id="VIVI-2" style="display: none;">
+                    <div class="history-table-container">
+                        <table id="imageHistoryTableVIVI">
+                            <thead>
+                                <tr>
+                                    <th>Target Name</th>
+                                    <th>DateTime</th>
+                                    <th>ID</th>
+                                    <th>Filter</th>
+                                    <th>Duration (s)</th>
+                                    <th>Type</th>
+                                    <th>Stars</th>
+                                    <th>HFR</th>
+                                    <th>RMS Text</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Данные для VIVI будут добавлены здесь с помощью JavaScript -->
+                            </tbody>
+                        </table>
+                </div>
+                <div class="tab-content" id="DUKE-2" style="display: none;">
+                    <div class="history-table-container">
+                        <table id="imageHistoryTableDUKE">
+                            <thead>
+                                <tr>
+                                    <th>Target Name</th>
+                                    <th>DateTime</th>
+                                    <th>ID</th>
+                                    <th>Filter</th>
+                                    <th>Duration (s)</th>
+                                    <th>Type</th>
+                                    <th>Stars</th>
+                                    <th>HFR</th>
+                                    <th>RMS Text</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Данные для DUKE будут добавлены здесь с помощью JavaScript -->
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>

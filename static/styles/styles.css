@@ -1,0 +1,260 @@
+body {
+    background-color: #171717;
+    margin: 0;
+    font-family: Helvetica, sans-serif;
+    color: white;
+    overflow: hidden;
+
+}
+
+.header {
+    background-color: #000000;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.header img {
+    width: 103px; /* Ширина логотипа */
+    height: 51px; /* Высота логотипа */
+}
+
+.command-center {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 15px;
+    color: white;
+    margin-right: 50px; /* Отступ от COMMAND CENTER до The Time */
+}
+
+.the-time, .safe-status {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 15px;
+    color: white;
+    margin-right: 20px; /* Отступ между The Time и Safe Status, если нужно */
+}
+
+.safe {
+    font-weight: bold;
+    color: green;
+}
+
+.not-safe-black {
+    font-weight: bold;
+    color: red; /* Красный текст */
+    background-color: #000; /* Черный фон */
+}
+
+/* Стиль для белого текста на красном фоне */
+.not-safe-red {
+    font-weight: bold;
+    color: #fff; /* Белый текст */
+    background-color: red; /* Красный фон */
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    /* Задаем ширину колонок */
+    grid-template-rows: repeat(2, calc(50vh - 40px));
+    /* Два ряда, высота зависит от высоты вьюпорта */
+    gap: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* Центрирует содержимое по вертикали */
+    align-items: stretch;
+    /* Центрирует содержимое по горизонтали */
+    padding: 10px;
+    background-color: #202020;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.grid-item h2 {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 15px;
+    /* Уменьшенный размер для заголовков */
+    margin: 0 0 5px 0;
+    /* Отступы вокруг заголовков */
+}
+
+.image-title {
+    font-size: 14px;
+    /* Уменьшение размера текста */
+    margin-bottom: 5px;
+    /* Отступ от текста до изображения */
+}
+
+.camera {
+    /* max-width: 100%; */
+    /* Ограничение ширины изображения, чтобы оно не касалось краев блока */
+    /* max-height: calc(50vh - 100px); */
+    /* Ограничение высоты изображения, чтобы оно поместилось в блок */
+    object-fit: contain;
+    /* Гарантирует, что изображение поместится полностью внутри своего контейнера */
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #2596be;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#weather-table-container {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.weather-table {
+    border-collapse: collapse;
+    margin-top: 5px;
+}
+
+.weather-table th,
+.weather-table td {
+    border: 1px solid #3d3d3d;
+    padding: 2px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.weather-table th {
+    background-color: #272727;
+    color: white;
+}
+
+.weather-table tr:nth-child(even) {
+    background-color: #000000;
+}
+
+.tabs {
+    display: flex; /* Делает табы гибкими элементами */
+    justify-content: flex-start; /* Выравнивает табы по левому краю */
+    /* background-color: #f1f1f1; */
+    padding: 0;
+    margin: 0;
+    height: 25px; /* Задает высоту строки табов */
+}
+
+.tab-content-container {
+    flex-grow: 1; /* Заставляет контейнер содержимого расти и заполнять оставшееся пространство */
+    display: flex; /* Применяет flex-стили к содержимому */
+}
+
+.tab-button {
+    background-color: #3d3d3d;
+    float: flex;
+    border: none;
+    outline: none;
+    cursor: pointer;
+   /* padding: 5px;  Уменьшите padding, чтобы уместиться в высоту 15px */
+    font-size: 10px; /* Уменьшите размер шрифта, чтобы текст умещался */
+    height: 25px; /* Установите высоту вкладок */
+    line-height: 25px; /* Установите высоту строки, равную высоте вкладки */
+    margin-right: 3px;
+}
+
+.tab-button:hover {
+    background-color: #ddd;
+}
+
+.tab-button.active {
+    background-color: #ccc;
+    font-weight: bold;
+}
+
+.tab-content {
+    width: 100%; /* Заставляет каждый блок содержимого заполнять всю доступную ширину */
+    display: none; /* Скрывает все блоки содержимого по умолчанию */
+    padding: 10px; /* Добавляет небольшое пространство вокруг содержимого */
+}
+
+.vivi-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#vivi-image, #t1-image {
+    max-width: 100%;
+    max-height: calc(50vh - 60px);
+    object-fit: contain;
+    margin-right: 5px; /* Добавляем небольшой отступ справа от изображения */
+}
+
+.imaging-button {
+    height: 15px;
+    font-size: 10px;
+    padding: 0 5px;
+    line-height: 15px;
+    margin-left: 5px; /* Для отступа от изображения */
+}
+
+.history-table-container {
+    overflow-x: auto; /* Позволяет горизонтальной прокрутке появиться, если содержимое таблицы шире контейнера */
+    overflow-y: auto; /* Позволяет вертикальной прокрутке появиться, если содержимое таблицы выше контейнера */
+    max-height: 300px; /* Устанавливает максимальную высоту контейнера таблицы, после которой появится вертикальный скролл */
+    border-radius: 5px; /* Скругление углов контейнера таблицы */
+}
+
+#imageHistoryTableT1,
+#imageHistoryTableVIVI,
+#imageHistoryTableDUKE {
+    width: 100%; /* Заставляет таблицу занимать всю ширину контейнера */
+    border-collapse: collapse; /* Убирает двойные границы между ячейками */
+    background-color: #252525; /* Фон таблицы */
+    color: #ffffff; /* Цвет текста */
+    font-size: 12px; /* Размер шрифта в таблице */
+    margin-bottom: 20px; /* Отступ снизу таблицы */
+}
+
+#imageHistoryTableT1 th,
+#imageHistoryTableVIVI th,
+#imageHistoryTableDUKE th,
+#imageHistoryTableT1 td,
+#imageHistoryTableVIVI td,
+#imageHistoryTableDUKE td {
+    padding: 8px; /* Поля вокруг текста внутри ячеек */
+    border: 1px solid #3d3d3d; /* Границы ячеек */
+    text-align: left; /* Выравнивание текста по левому краю */
+}
+
+#imageHistoryTableT1 th,
+#imageHistoryTableVIVI th,
+#imageHistoryTableDUKE th {
+    background-color: #333333; /* Фон заголовков таблицы */
+    color: #ffffff; /* Цвет текста заголовков */
+}
+
+#imageHistoryTableT1 tr:nth-child(even),
+#imageHistoryTableVIVI tr:nth-child(even),
+#imageHistoryTableDUKE tr:nth-child(even) {
+    background-color: #292929; /* Цвет фона для четных строк */
+}
+
+#imageHistoryTableT1 tr:hover,
+#imageHistoryTableVIVI tr:hover,
+#imageHistoryTableDUKE tr:hover {
+    background-color: #3d3d3d; /* Цвет фона при наведении курсора на строку */
+}
+
